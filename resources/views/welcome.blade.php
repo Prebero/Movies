@@ -32,5 +32,4 @@
         @endforeach
     </section>
 </body>
-
 </html>

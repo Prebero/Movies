@@ -5,36 +5,38 @@ namespace App\Http\Controllers\Pages;
 use App\Http\Controllers\Controller;
 use App\Models\Movie;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+
 
 class PagesController extends Controller
 {
-    public function homepage()
-    {
-        $movies = Movie::all();
+    public function homepage(){
 
-        return view('welcome', compact('movies'));
+        $movies = Movie::all();
+        // return view('welcome',[
+        //     'films'=>$movies
+        // ]);
+
+        // return $movies;
+
+        return view('welcome',compact('movies'));
     }
     // function save Movie ( Request $'Movie' ){
-    function save_Movies(Request $request)
-    {
-        $request->validate([
-            'title' => 'required|unique:movies|max:255',
-            'description' => 'required|string',
-            'language' => 'required|string',
-            'file' => 'required|image'
-        ]);
-
+        function save_Movies (Request $movies)
+        {
         $movie = new movie();
 
-        $movie->create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'rating' => "0",
-            'language' => $request->language,
-            'poster' => $request->file('file')->store('images', ['disk'=>'public']),
-        ]);
+        $movie -> title = $movies->title;
 
-        return redirect()->route('home');
+        $movie->description = $movies ->description;
+        $movie->rating = "0";
+        $movie->language = $movies ->language;
+        $movie->Save();
+        return "Data Saved";
+
+        // return $movie;
+        // return redirect () ->back();
+        // return redirect () ->route();
     }
-}
+    } 
+
+

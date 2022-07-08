@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             // $table->foreignId('user_id')->nullable()->constrained('users','id')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('title',50);
-            $table->string('rating');
+            // $table->string('rating');
             $table->string('language');
             $table->string('poster');
             // $table->string('views')->default('0');

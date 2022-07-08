@@ -24,3 +24,4 @@ Route::get('/Detail',function(){ return view('Detail'); });
 Route::get('/Dashboard',function(){ return view('Dashboard'); });
 Route::get('/AddMovie',function(){ return view('AddMovie'); })->name('add.movie');
 Route::post('/save', [\App\Http\Controllers\Pages\PagesController::class,'save_Movies'])->name('save_movie');
+

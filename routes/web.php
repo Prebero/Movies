@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', [\App\Http\Controllers\Pages\PagesController::class,'homepage'])->name('home');
+Route::get('/', [\App\Http\Controllers\Pages\PagesController::class,'homepage']);
 
 Route::get('/Login',function(){ return view('Login'); });
 Route::get('/Detail',function(){ return view('Detail'); });
 Route::get('/Dashboard',function(){ return view('Dashboard'); });
-Route::get('/AddMovie',function(){ return view('AddMovie'); })->name('add.movie');
-Route::post('/save', [\App\Http\Controllers\Pages\PagesController::class,'save_Movies'])->name('save_movie');
+Route::get('/AddMovie',function(){ return view('AddMovie'); });
+Route::post('/', [\App\Http\Controllers\Pages\PagesController::class,'save_movie'])->name('save_movie');
